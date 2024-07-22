@@ -4,17 +4,13 @@ using ApiFullStackCLint.Data.MongoDB;
 var builder = WebApplication.CreateBuilder(args);
 
 // Load MongoDB settings from appsettings.json
-var configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-    .Build();
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-// Register MongoDB settings with DI container
-builder.Services.Configure<MongoDbSettings>(configuration.GetSection("MongoDbSettings"));
-
-// Register MongoDB service with DI container
+// Register MongoDB settings and service with DI container
+builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.AddSingleton<MongoDbService>();
 
-// Add GraphQL server, CORS, and other services as needed
+// Add GraphQL server, CORS, and other services
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>();
@@ -36,27 +32,34 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.SetMinimumLevel(LogLevel.Debug);
 
-// Configure Kestrel for HTTPS
+// Configure Kestrel server options based on environment
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.ListenAnyIP(5000); // HTTP port
-    serverOptions.ListenAnyIP(5001, listenOptions =>
+    if (builder.Environment.IsDevelopment())
     {
-        // Path to the PFX certificate and its password
-        const string certificatePath = "/root/persistentStorage/cert/fullstackclint.com.pfx";
-        const string certificatePassword = "password";
-        listenOptions.UseHttps(certificatePath, certificatePassword);
-    });
+        // Development settings (HTTP only)
+        serverOptions.ListenAnyIP(5000); // HTTP port
+    }
+    else
+    {
+        // Production settings (HTTP and HTTPS)
+        serverOptions.ListenAnyIP(5000); // HTTP port
+        serverOptions.ListenAnyIP(5001, listenOptions =>
+        {
+            // Path to the PFX certificate and its password
+            const string certificatePath = "/root/persistentStorage/cert/fullstackclint.com.pfx";
+            const string certificatePassword = "password";
+            listenOptions.UseHttps(certificatePath, certificatePassword);
+        });
+    }
 });
 
 var app = builder.Build();
 
-app.UseCors("AllowAll");
-
+// Configure the HTTP request pipeline
 app.UseRouting();
-
+app.UseCors("AllowAll");
 app.UseAuthorization();
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapGraphQL();
