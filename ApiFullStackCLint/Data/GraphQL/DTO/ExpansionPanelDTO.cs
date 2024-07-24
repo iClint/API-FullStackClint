@@ -4,7 +4,7 @@ namespace ApiFullStackCLint.Data.GraphQL.DTO
     {
         public string? TabLabel { get; set; }
         public List<string>? Content { get; set; }
-        public List<string>? ImgUrls { get; set; }
+        public List<ImageUrlsDto>? ImgUrls { get; set; }
         public List<ExpansionPanelDto>? ExpansionPanels { get; set; }
     }
 
@@ -20,5 +20,6 @@ namespace ApiFullStackCLint.Data.GraphQL.DTO
     {
         public string? Url { get; set; }
         public string? Label { get; set; }
+        public string? Alt { get; set; }
     }
 }

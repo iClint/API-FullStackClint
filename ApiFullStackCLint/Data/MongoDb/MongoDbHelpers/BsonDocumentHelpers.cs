@@ -31,12 +31,12 @@ namespace ApiFullStackCLint.Data.MongoDb.MongoDbHelpers
             {
                 Expanded = GetBooleanValue(panel, "expanded"),
                 Title = GetStringValue(panel, "title"),
-                ImgUrls = GetImageUrls(panel,"imgUrl"),
+                ImgUrls = GetImageUrls(panel,"imgUrls"),
                 Paragraphs = GetStringArrayValue(panel, "paragraphs")
             };
         }
 
-        private static List<ImageUrlsDto> GetImageUrls(BsonDocument document, string fieldName)
+        public static List<ImageUrlsDto> GetImageUrls(BsonDocument document, string fieldName)
         {
             return document.TryGetValue(fieldName, out var value) && value.IsBsonArray
                 ? value.AsBsonArray.Select(image => CreateImageUrlsDto(image.AsBsonDocument)).ToList()
@@ -48,7 +48,8 @@ namespace ApiFullStackCLint.Data.MongoDb.MongoDbHelpers
             return new ImageUrlsDto
             {
                 Url = GetStringValue(image, "url"),
-                Label = GetStringValue(image, "label")
+                Label = GetStringValue(image, "label"),
+                Alt = GetStringValue(image, "alt")
             };
         }
 
