@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFullStackCLint", "ApiFullStackCLint\ApiFullStackCLint.csproj", "{92D30047-72EB-41BA-98C9-7F06175EEE0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFullStackClint", "ApiFullStackClint\ApiFullStackClint.csproj", "{92D30047-72EB-41BA-98C9-7F06175EEE0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

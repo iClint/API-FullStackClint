@@ -1,5 +1,5 @@
 using MongoDB.Driver;
-namespace ApiFullStackCLint.Data.MongoDb.MongoDbHelpers
+namespace Api
 {
     public class MongoCollectionHelper
     {

@@ -1,4 +1,4 @@
-namespace ApiFullStackCLint.Data.GraphQL.DTO
+namespace Api
 {
     public class AboutDto
     {

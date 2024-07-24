@@ -1,4 +1,4 @@
-namespace ApiFullStackCLint.Data.MongoDB
+namespace Api
 {
     public class MongoDbSettings
     {

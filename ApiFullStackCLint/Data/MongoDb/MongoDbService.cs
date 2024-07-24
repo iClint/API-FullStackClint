@@ -1,10 +1,10 @@
-using ApiFullStackCLint.Data.GraphQL.DTO;
-using ApiFullStackCLint.Data.MongoDb.MongoDbHelpers;
+using Api;
+using ApiFullStackClint.Data.MongoDb.MongoDbHelpers;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace ApiFullStackCLint.Data.MongoDB
+namespace ApiFullStackClint.Data.MongoDb
 {
     public class MongoDbService
     {

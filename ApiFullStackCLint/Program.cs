@@ -1,5 +1,6 @@
-using ApiFullStackCLint.Data.GraphQL.Query;
-using ApiFullStackCLint.Data.MongoDB;
+using Api;
+using ApiFullStackClint.Data.GraphQL.Query;
+using ApiFullStackClint.Data.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +48,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
         serverOptions.ListenAnyIP(5001, listenOptions =>
         {
             // Path to the PFX certificate and its password
-            const string certificatePath = "/root/persistentStorage/cert/fullstackclint.com.pfx";
+            const string certificatePath = "/root/storage/cert/fullstackclint.com.pfx";
             const string certificatePassword = "password";
             listenOptions.UseHttps(certificatePath, certificatePassword);
         });
@@ -60,9 +61,8 @@ var app = builder.Build();
 app.UseRouting();
 app.UseCors("AllowAll");
 app.UseAuthorization();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapGraphQL();
-});
+
+app.MapGraphQL(); // Register your GraphQL endpoint
+
 
 app.Run();

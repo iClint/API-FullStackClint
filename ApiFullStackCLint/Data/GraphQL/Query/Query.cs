@@ -1,7 +1,7 @@
-using ApiFullStackCLint.Data.GraphQL.DTO;
-using ApiFullStackCLint.Data.MongoDB;
+using Api;
+using ApiFullStackClint.Data.MongoDb;
 
-namespace ApiFullStackCLint.Data.GraphQL.Query
+namespace ApiFullStackClint.Data.GraphQL.Query
 {
     public class Query
     {

@@ -1,8 +1,7 @@
-
-using ApiFullStackCLint.Data.GraphQL.DTO;
+using Api;
 using MongoDB.Bson;
 
-namespace ApiFullStackCLint.Data.MongoDb.MongoDbHelpers
+namespace ApiFullStackClint.Data.MongoDb.MongoDbHelpers
 {
     public static class BsonDocumentHelpers
     {
