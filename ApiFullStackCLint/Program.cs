@@ -38,7 +38,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
     if (builder.Environment.IsDevelopment())
     {
         // Development settings (HTTP only)
-        serverOptions.ListenAnyIP(5000); // HTTP port
+        serverOptions.ListenAnyIP(5142); // HTTP port
     }
     else
     {

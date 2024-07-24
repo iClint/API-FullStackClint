@@ -64,7 +64,7 @@ namespace ApiFullStackCLint.Data.MongoDB
             {
                 var tabLabel = BsonDocumentHelpers.GetStringValue(document, "tabLabel");
                 var content = BsonDocumentHelpers.GetStringArrayValue(document, "content");
-                var imgUrls = BsonDocumentHelpers.GetStringArrayValue(document, "imgUrls");
+                var imgUrls = BsonDocumentHelpers.GetImageUrls(document, "imgUrls");
                 var expansionPanels = BsonDocumentHelpers.GetExpansionPanels(document, "expansionPanels");
 
                 return new AboutDto
