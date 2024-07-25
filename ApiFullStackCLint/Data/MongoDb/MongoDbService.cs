@@ -65,6 +65,7 @@ namespace ApiFullStackClint.Data.MongoDb
                 var tabLabel = BsonDocumentHelpers.GetStringValue(document, "tabLabel");
                 var content = BsonDocumentHelpers.GetStringArrayValue(document, "content");
                 var imgUrls = BsonDocumentHelpers.GetImageUrls(document, "imgUrls");
+                var imageViewerStyles = BsonDocumentHelpers.GetImageViewerStyles(document, "imageViewerStyles");
                 var expansionPanels = BsonDocumentHelpers.GetExpansionPanels(document, "expansionPanels");
 
                 return new AboutDto
@@ -72,6 +73,7 @@ namespace ApiFullStackClint.Data.MongoDb
                     TabLabel = tabLabel,
                     Content = content,
                     ImgUrls = imgUrls,
+                    ImageViewerStyles = imageViewerStyles,
                     ExpansionPanels = expansionPanels
                 };
             }).ToList();

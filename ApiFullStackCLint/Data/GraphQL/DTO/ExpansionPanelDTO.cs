@@ -5,7 +5,7 @@ namespace ApiFullStackClint.Data.GraphQL.DTO
         public string? TabLabel { get; set; }
         public List<string>? Content { get; set; }
         public List<ImageUrlsDto>? ImgUrls { get; set; }
-        public ImageViewerStyleDto? ImageViewerStyle { get; set; }
+        public ImageViewerStylesDto? ImageViewerStyles { get; set; }
         public List<ExpansionPanelDto>? ExpansionPanels { get; set; }
     }
 
@@ -15,7 +15,7 @@ namespace ApiFullStackClint.Data.GraphQL.DTO
         public string? Title { get; set; }
         public List<ImageUrlsDto>? ImgUrls { get; set; }
 
-        public ImageViewerStyleDto? ImageViewerStyle { get; set; }
+        public ImageViewerStylesDto? ImageViewerStyles { get; set; }
         public List<string>? Paragraphs { get; set; }
     }
 
@@ -26,16 +26,16 @@ namespace ApiFullStackClint.Data.GraphQL.DTO
         public string? Alt { get; set; }
     }
 
-    public class ImageViewerStyleDto
+    public class ImageViewerStylesDto
     {
         public string? ViewerStyle { get; set; }
         public string? ViewSize { get; set; }
         public bool? IsPreview { get; set; }
         public int? SoloIndex { get; set; }
-        public CarouselConfig? CarouselConfig { get; set; }
+        public CarouselConfigDto? CarouselConfig { get; set; }
     }
 
-    public class CarouselConfig
+    public class CarouselConfigDto
     {
         public int? Interval { get; set; }
         public bool? ShowNavigationArrows { get; set; }
