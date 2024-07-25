@@ -1,4 +1,4 @@
-using Api;
+using ApiFullStackClint.Data.GraphQL.DTO;
 using MongoDB.Bson;
 
 namespace ApiFullStackClint.Data.MongoDb.MongoDbHelpers

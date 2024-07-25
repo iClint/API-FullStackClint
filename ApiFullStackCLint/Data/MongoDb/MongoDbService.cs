@@ -1,4 +1,4 @@
-using Api;
+using ApiFullStackClint.Data.GraphQL.DTO;
 using ApiFullStackClint.Data.MongoDb.MongoDbHelpers;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;

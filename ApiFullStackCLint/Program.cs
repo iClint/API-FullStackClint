@@ -1,4 +1,3 @@
-using Api;
 using ApiFullStackClint.Data.GraphQL.Query;
 using ApiFullStackClint.Data.MongoDb;
 
