@@ -1,4 +1,5 @@
 using Api;
+using ApiFullStackClint.Data.GraphQL.DTO;
 using ApiFullStackClint.Data.MongoDb;
 
 namespace ApiFullStackClint.Data.GraphQL.Query
