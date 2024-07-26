@@ -17,14 +17,16 @@ namespace ApiFullStackClint.Data.MongoDb
             var client = new MongoClient(settings.Value.ConnectionString);
             _database = client.GetDatabase(settings.Value.DatabaseName);
             _logger = logger;
-            // Create the appropriate logger for MongoCollectionHelper
             _collectionHelper = new MongoCollectionHelper(_database, collectionHelperLogger);
         }
 
         public async Task<List<AboutDto>> GetAllAboutDocumentsAsync(string collectionName)
         {
-            if (!await _collectionHelper.CollectionExistsAsync(collectionName)) 
+            if (!await _collectionHelper.CollectionExistsAsync(collectionName))
+            {
+                _logger.LogWarning($"Collection '{collectionName}' does not exist.");
                 return new List<AboutDto>();
+            }
             
             try
             {
@@ -41,9 +43,11 @@ namespace ApiFullStackClint.Data.MongoDb
 
         public async Task<AboutDto?> GetAboutDocumentByTabLabelAsync(string collectionName, string tabLabel)
         {
-            if (!await _collectionHelper.CollectionExistsAsync(collectionName)) 
+            if (!await _collectionHelper.CollectionExistsAsync(collectionName))
+            {
+                _logger.LogWarning($"Collection '{collectionName}' does not exist.");
                 return new AboutDto();
-
+            }
             try
             {
                 var collection = _database.GetCollection<BsonDocument>(collectionName);
