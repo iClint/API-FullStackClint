@@ -29,7 +29,7 @@ namespace ApiFullStackClint.Data.GraphQL.DTO
     public class ImageViewerStylesDto
     {
         public string? ViewerStyle { get; set; }
-        public string? ViewSize { get; set; }
+        public string? ViewerSize { get; set; }
         public bool? IsPreview { get; set; }
         public int? SoloIndex { get; set; }
         public CarouselConfigDto? CarouselConfig { get; set; }

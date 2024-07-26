@@ -41,7 +41,7 @@ public static class BsonDocumentHelpers
     private static ImageViewerStylesDto CreateImageViewerStylesDto(BsonDocument document) => new()
     {
         ViewerStyle = GetStringValue(document, "viewerStyle"),
-        ViewSize = GetStringValue(document, "viewerSize"),
+        ViewerSize = GetStringValue(document, "viewerSize"),
         IsPreview = GetBooleanValue(document, "isPreview"),
         SoloIndex = GetIntValue(document, "soloIndex"),
         CarouselConfig = GetCarouselConfig(document, "carouselConfig")
